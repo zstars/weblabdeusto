@@ -1,0 +1,56 @@
+<html>
+<head>
+<!-- 
+	CONCLUSIONES DE MOMENTO:
+	
+	- WebGLRenderer soporta Sprite
+	- CanvasRenderer NO soporta Sprite
+	- La supuesta alternativa a Sprite para CanvasRenderer es Particle, pero tiene una interfaz diferente y limitaciones significativas.
+	- CanvasRenderer soporta CORS
+	- WebGLRenderer NO soporta CORS
+	- Apache Redirect no puede utilizarse para hacer bypass del CORS
+	- Parece que Apache Proxy, sin embargo, sí que funciona para hacer bypass del CORS
+	- Con Apache Proxy debería funcionar CORS en WebGL (indirectamente pero de forma usable).
+-->
+
+
+	<script type="text/javascript" src="three.min.js"></script>
+	<!--<script type="text/javascript" src = "main.js"></script>-->
+
+	<!--<script type="text/javascript" src = "mainc.js"></script>-->
+	<!--<script type="text/javascript" src = "maina.js"></script>-->
+	<script type="text/javascript" src = "mainv.js"></script>
+	<!--<script type="text/javascript" src = "mainv2.js"</script>-->
+
+</head>
+<body>
+
+		<script src="http://mrdoob.github.com/three.js/examples/js/Stats.js"></script>
+
+		<!--<video id="video" autoplay style="display:none">
+			<source src="http://mrdoob.github.com/three.js/examples/textures/sintel.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+			<source src="http://mrdoob.github.com/three.js/examples/textures/sintel.ogv" type='video/ogg; codecs="theora, vorbis"'>
+		</video>-->
+		
+		
+		<img id="video_directo" src="http://www.weblab.deusto.es/webcam/fishtank1/video.mjpeg"/ style="display:none">
+		<img id="video3" src="http://www.whitegadget.com/attachments/pc-wallpapers/16950d1224057972-landscape-wallpaper-blue-river-scenery-wallpapers.jpg" style="display:none">
+		<img id="video" src="http://localhost/pruebasp/video.mjpeg" style="display:none">
+		<img id="video2" src="http://localhost/pruebas/checkerboard.jpg" style="display:none">
+		<img id="video7" src="http://localhost/pruebasp/checkerboard.jpg" style="display:none">
+		<img id="video4" src="checkerboard.jpg" style="display:none">
+		
+		<!--<video id="video2" autoplay>
+			<source src="http://www.weblab.deusto.es/webcam/fishtank1/video.mjpeg" type='video/mjpeg'>
+			Not supported
+		</video>-->
+
+
+<script>
+mainv();
+</script>
+
+
+
+</body>
+</html>
