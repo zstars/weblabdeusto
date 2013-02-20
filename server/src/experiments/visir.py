@@ -471,16 +471,12 @@ class VisirExperiment(ConcurrentExperiment.ConcurrentExperiment):
 
         session_obj = self._session_manager.get_session_locking(lab_session_id)
         try:
-            if 'connection' in session_obj:
-                conn = session_obj['connection']
-            else:
-                conn = httplib.HTTPConnection(self.measure_server_addr)
-                session_obj['connection'] = conn
-
+            conn = httplib.HTTPConnection(self.measure_server_addr)
             conn.request("POST", self.measure_server_target, request)
             response = conn.getresponse()
             data = response.read()
             response.close()
+            conn.close()
 
             # We just sent a request. Tick the heartbeater.
             self.heartbeater.tick(session_obj)
@@ -589,11 +585,6 @@ class VisirExperiment(ConcurrentExperiment.ConcurrentExperiment):
  
             
         sess_obj = self._session_manager.get_session(lab_session_id)
-        if 'connection' in sess_obj:
-            try:
-                sess_obj['connection'].close()
-            except:
-                traceback.print_exc()
         self._session_manager.delete_session(lab_session_id)
         with self.heartbeater_lock:
             users_left = len(self._session_manager.list_sessions()) != 0
