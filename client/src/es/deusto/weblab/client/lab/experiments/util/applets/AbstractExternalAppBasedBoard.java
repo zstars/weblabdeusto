@@ -211,6 +211,11 @@ public abstract class AbstractExternalAppBasedBoard extends ExperimentBase {
 		$wnd.wl_sendCommand       = @es.deusto.weblab.client.lab.experiments.util.applets.AbstractExternalAppBasedBoard::sendCommand(Ljava/lang/String;I);
 		$wnd.wl_onClean           = @es.deusto.weblab.client.lab.experiments.util.applets.AbstractExternalAppBasedBoard::onClean();
 
+        $wnd.wl_historyProperties = {};
+
+        $wnd.wl_historyProperties.getValue      = @es.deusto.weblab.client.HistoryProperties::getValue(Ljava/lang/String;);
+        $wnd.wl_historyProperties.getValueDef   = @es.deusto.weblab.client.HistoryProperties::getValue(Ljava/lang/String;Ljava/lang/String;);
+        $wnd.wl_historyProperties.getValues     = @es.deusto.weblab.client.HistoryProperties::getValues(Ljava/lang/String;);
 	}-*/;	
 
 	static void onClean(){

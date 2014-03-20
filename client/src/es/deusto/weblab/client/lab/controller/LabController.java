@@ -474,6 +474,13 @@ public class LabController implements ILabController {
 						pollForPostReservationData();
 					}
 				};
+
+                // TODO: Check whether storing that information makes sense.
+                ConfirmedReservationStatus crs = (ConfirmedReservationStatus) reservation;
+                HistoryProperties.setValue("reservation_id", crs.getReservationId());
+                HistoryProperties.setValue("remote_reservation_id", crs.getRemoteReservationId());
+                HistoryProperties.setValue("initial_configuration", crs.getInitialConfiguration());
+
 				t.schedule(200);
 			}else
 				this.onError("Unexpected reservation status obtained while waiting for " + PostReservationReservationStatus.class.getName() + ": " + reservation.getClass().getName() + ": " + reservation);
